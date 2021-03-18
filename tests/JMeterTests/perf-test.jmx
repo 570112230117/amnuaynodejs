@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;comCode&quot;: &quot;15&quot;,&#xd;
+        &quot;docNo&quot;: &quot;1520000617&quot;,&#xd;
+        &quot;docYear&quot;: &quot;2023&quot;,&#xd;
+        &quot;docType&quot;: &quot;Y6&quot;,&#xd;
+        &quot;billNo&quot;: &quot;1562025572&quot;,&#xd;
+       &quot;billType&quot;:&quot;Y4F2&quot;,&#xd;
+        &quot;billDesc&quot;: &quot;Inv-Product Daily&quot;,&#xd;
+        &quot;billDate&quot;: &quot;2020-02-01&quot;,&#xd;
+        &quot;postDate&quot;: &quot;2020-02-01&quot;,&#xd;
+        &quot;reference&quot;: &quot;1562025572&quot;,&#xd;
+        &quot;username&quot;: &quot;Z0005402&quot;,&#xd;
+        &quot;fullName&quot;: &quot;Palinee Pantumas&quot;,&#xd;
+        &quot;cusCode&quot;: &quot;10012320&quot;,&#xd;
+        &quot;cusName&quot;: &quot;PTT GLOBAL CHEMICAL PUBLIC COMPANY LIMITED&quot;,&#xd;
+        &quot;paymentTerm&quot;: &quot;UI01&quot;,&#xd;
+        &quot;paymentTermDesc&quot;: &quot;Deliver 1-15 due 25 same month&quot;,&#xd;
+        &quot;paymentTermDay&quot;: &quot;11&quot;,&#xd;
+        &quot;currency&quot;: &quot;THB&quot;,&#xd;
+        &quot;exchangeRate&quot;: 1.00,&#xd;
+        &quot;vatCode&quot;: &quot;O7&quot;,&#xd;
+        &quot;vatAmountDecimalVal&quot;: 534025.60,&#xd;
+        &quot;vatRate&quot;: 7.00,&#xd;
+        &quot;paymentMethod&quot;: &quot;L&quot;,&#xd;
+        &quot;invoiceItemDataList&quot;: [&#xd;
+            {&#xd;
+                &quot;invoiceRefItem&quot;: &quot;20&quot;,&#xd;
+                &quot;saleOrder&quot;: &quot;1512033785&quot;,&#xd;
+                &quot;saleOrderItem&quot;: &quot;10&quot;,&#xd;
+                &quot;materialCode&quot;: &quot;ME00.00130.R&quot;,&#xd;
+                &quot;materialDesc&quot;: &quot;Yellow Methyl Este&quot;,&#xd;
+                &quot;qty&quot;: 40032.00,&#xd;
+                &quot;unit&quot;: &quot;L&quot;,&#xd;
+                &quot;amtBeforeVat&quot;: 1534026.24,&#xd;
+                &quot;incomPaymentNo&quot;: &quot;1534000175&quot;,&#xd;
+                &quot;incomPaymentDate&quot;: &quot;2020-02-01&quot;,&#xd;
+                &quot;descItem&quot;: &quot;x&quot;,&#xd;
+    &quot;invoiceRef&quot;: &quot;invoiceRef&quot;,&#xd;
+    &quot;invoiceRefDocDate&quot;: &quot;2020-02-01&quot;,&#xd;
+    &quot;invoiceRefPostDate&quot;: &quot;2020-02-01&quot;,&#xd;
+    &quot;invoiceRefYear&quot;: &quot;invoiceRefYear&quot;,&#xd;
+    &quot;poNo&quot;: &quot;poNo&quot;&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;typeOfBC&quot;: &quot;X&quot;,&#xd;
+  &quot;baselineDate&quot;: &quot;2020-02-01&quot;,&#xd;
+        &quot;billDocCC&quot;: &quot;billDocCC&quot;,&#xd;
+        &quot;branchCode&quot;: &quot;branchCode&quot;,&#xd;
+        &quot;docNoCC&quot;: &quot;docNoCC&quot;,&#xd;
+        &quot;docYearCC&quot;: &quot;docYearCC&quot;,&#xd;
+        &quot;dueDate&quot;: &quot;2020-02-01&quot;,&#xd;
+        &quot;fiDocNo&quot;: &quot;fiDocNo&quot;,&#xd;
+        &quot;fiDocNoCC&quot;: &quot;fiDocNoCC&quot;,&#xd;
+        &quot;flag_block&quot;: &quot;C&quot;,&#xd;
+        &quot;flag_matched&quot;: &quot;flag_matched&quot;,&#xd;
+        &quot;flag_manual&quot;: &quot;flag_manual&quot;,&#xd;
+        &quot;runningTaxNo&quot;: &quot;runningTaxNo&quot;,&#xd;
+        &quot;livDocNo&quot;: &quot;livDocNo&quot;,&#xd;
+        &quot;livDocNoCC&quot;: &quot;livDocNoCC&quot;,&#xd;
+        &quot;payAmount&quot;: &quot;payAmount&quot;,&#xd;
+        &quot;poText&quot;: &quot;poText&quot;,&#xd;
+        &quot;postingDateInv&quot;: &quot;2020-02-01&quot;,&#xd;
+        &quot;ref1&quot;: &quot;ref1&quot;,&#xd;
+        &quot;ref2&quot;: &quot;ref2&quot;,&#xd;
+        &quot;transType&quot;: &quot;transType&quot;,&#xd;
+        &quot;amountIncVat&quot;: 100,&#xd;
+        &quot;whtAmount&quot;: 0,&#xd;
+        &quot;whtAmount1&quot;: 0,&#xd;
+        &quot;whtAmount2&quot;: 0,&#xd;
+        &quot;whtBase1&quot;: 100,&#xd;
+        &quot;whtBase2&quot;: 100,&#xd;
+        &quot;whtCode1&quot;: &quot;01&quot;,&#xd;
+        &quot;whtCode2&quot;: &quot;01&quot;,&#xd;
+        &quot;whtDesc1&quot;: &quot;whtDesc1&quot;,&#xd;
+        &quot;whtDesc2&quot;: &quot;whtDesc2&quot;,&#xd;
+        &quot;whtRate1&quot;: 0,&#xd;
+        &quot;whtRate2&quot;: 0,&#xd;
+        &quot;whtType1&quot;: &quot;01&quot;,&#xd;
+        &quot;whtType2&quot;: &quot;02&quot;,&#xd;
+        &quot;yearFiDocNo&quot;: &quot;2020&quot;,&#xd;
+        &quot;yearFiDocNoCC&quot;: &quot;2020&quot;,&#xd;
+        &quot;yearLivDocNo&quot;: &quot;yearLivDocNo&quot;,&#xd;
+        &quot;yearLivDocNoCC&quot;: &quot;yearLivDocNoCC&quot;,&#xd;
+        &quot;reason&quot;: &quot;test&quot;,&#xd;
+        &quot;calcTaxInd&quot;: &quot;ca&quot;,&#xd;
+        &quot;hRefKey2&quot;: &quot;hrefkey2&quot;,&#xd;
+        &quot;entryBy&quot;: &quot;entryBy&quot;,&#xd;
+        &quot;lRefKey2&quot;: &quot;lRefKey2&quot;,&#xd;
+        &quot;reIssueDate&quot;: &quot;2020-02-01&quot;,&#xd;
+        &quot;refBillNoCC&quot;: &quot;refBillNoCC&quot;,&#xd;
+        &quot;refDocNoCC&quot;: &quot;refDocNoCC&quot;,&#xd;
+        &quot;refDocYearCC&quot;: &quot;refDocYearCC&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">gcl-adaptor-dev.apps.ocpdev.pttdigital.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/invoice/pay</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

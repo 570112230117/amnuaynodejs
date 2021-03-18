@@ -1,0 +1,116 @@
+# Default values for generic-deployment.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: nexus-registry.pttdigital.com/bd-amnuaynodejs-bc-pttnge-devop/amnuaynodejs
+  tag: "latest"
+  pullPolicy: Always
+
+imagePullSecrets:
+  - nexus-registry-non-prd
+
+nameOverride: bd-amnuaynodejs-bc-pttnge-devop-amnuaynodejs-dev
+fullnameOverride: bd-amnuaynodejs-bc-pttnge-devop-amnuaynodejs-dev
+
+env:
+  - name: NODE_ENV
+    value: development
+  
+#   - name: DB_USERNAME
+#     secret: 
+#       name: master-service-devops
+#       key: username
+  
+#   - name: DB_PASSWORD
+#     secret: 
+#       name: master-service-devops
+#       key: password
+
+# envFrom:
+#   - configmap:
+#       name: 
+
+# configmap:
+#   enabled: true
+#   data:
+#   # key: value
+#     APP_URL: http://${HOST}:${PORT}
+#     HOST: 0.0.0.0
+#     PORT: "8080"
+#     foo: bar
+
+# volumeMounts:
+#   - name: master-service-devops-volume
+#     mountPath: /tmp/
+# volumes:
+#   - name: master-service-devops-volume
+#     persistentVolumeClaim:
+#       claimName: master-service-devops
+
+
+
+containerPorts:
+  - 8080
+
+resources:
+  requests:
+    cpu: 500m
+  limits:
+    cpu: 500m
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+service:
+  enabled: true
+  type: ClusterIP
+  annotation: {}
+  ports:
+    - name: bd-amnuaynodejs-bc-pttnge-devop-amnuaynodejs-dev-svc
+      protocol: TCP
+      externalPort: 80
+      internalPort: 8080
+
+route:
+  enabled: true
+  routes:
+    - name: main
+      spec:
+        host: bd-amnuaynodejs-bc-pttnge-devop-amnuaynodejs-dev.apps.ocpdev.pttdigital.com
+        to:
+          kind: Service
+          name: bd-amnuaynodejs-bc-pttnge-devop-amnuaynodejs-dev
+          weight: 100
+        port:
+          targetPort: bd-amnuaynodejs-bc-pttnge-devop-amnuaynodejs-dev-svc
+        wildcardPolicy: None
+        tls:
+          termination: edge
+          insecureEdgeTerminationPolicy: Redirect
+
+healthCheck:
+  enabled: false
+  readinessProbe:
+    httpGet:
+      path: /ready
+      port: 80
+    initialDelaySeconds: 0
+    timeoutSeconds: 1
+    periodSeconds: 10
+    successThreshold: 1
+    failureThreshold: 3
+  livenessProbe:
+    httpGet:
+      path: /health
+      port: 80
+    initialDelaySeconds: 0
+    timeoutSeconds: 1
+    periodSeconds: 10
+    successThreshold: 1
+    failureThreshold: 3
